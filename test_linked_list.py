@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import  unittest
-from linked_list import Node,DoublyLinkedList
+from linked_list import Node,DoublyLinkedList,Stack,Queue
 
 class DoublyLinkedListTest(unittest.TestCase):
 
@@ -73,6 +73,55 @@ class DoublyLinkedListTest(unittest.TestCase):
         for i,j in zip(to_iterate,l):
             self.assertTrue(i == j)
 
+class StackTest(unittest.TestCase):
+
+    def test_init(self):
+        stack  = Stack()
+        self.assertEqual(len(stack),0)
+
+    def test_push(self):
+        stack = Stack()
+        to_push = 33
+        stack.push(to_push)
+        self.assertEqual(len(stack),1)
+        self.assertEqual(stack.peek(),to_push)
+        to_push = "thirty three"
+        stack.push(to_push)
+        self.assertEqual(len(stack),2)
+        self.assertEqual(stack.peek(),to_push)
+
+    def test_pop(self):
+        stack =  Stack()
+        to_push = [-5.0,0,"five",True]
+        for item in to_push:
+            stack.push(item)
+        self.assertEqual(len(stack),len(to_push))
+        for i in range(len(to_push)):
+            self.assertEqual(stack.pop(),to_push[len(to_push)-1-i])
+        self.assertEqual(len(stack),0)
+
+class QueueTest(unittest.TestCase):
+
+    def test_init(self):
+        queue = Queue()
+        self.assertEqual(len(queue),0)
+
+    def test_push(self):
+        queue = Queue()
+        to_push = [33, 0.0, "thirty three"]
+        for item in to_push:
+            queue.push(item)
+        self.assertEqual(len(queue),len(to_push))
+        self.assertEqual(queue.peek(),to_push[0])
+
+    def test_pop(self):
+        queue =  Queue()
+        to_push = [-5,0.0,"five",True,[],[1]]
+        for item in to_push:
+            queue.push(item)
+        for item in to_push:
+            self.assertEqual(queue.pop(),item)
+        self.assertEqual(len(queue),0)
+
 if __name__ == "__main__":
     unittest.main()
-

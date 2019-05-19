@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # Author: Jonah Miller (jonah.maxwell.miller@gmail.com)
 
 # TODO:
@@ -6,6 +5,7 @@
 # with sentinel nodes.
 
 from __future__ import print_function,division
+from abc import ABC, abstractmethod
 
 class Node:
     def __init__(self,
@@ -63,11 +63,14 @@ class DoublyLinkedList:
 
     def push(self,item):
         "Add to the beginning of list"
-        next_node = self._head
-        new_node = Node(item,None,next_node)
-        self._head = new_node
-        next_node._prev = new_node
-        self._size += 1
+        if  len(self) == 0:
+            self._add_from_empty(item)
+        else:
+            next_node = self._head
+            new_node = Node(item,None,next_node)
+            self._head = new_node
+            next_node._prev = new_node
+            self._size += 1
 
     def append(self,item):
         "Add to end of list"
@@ -171,3 +174,40 @@ class DoublyLinkedList:
 
     def  __str__(self):
         return str(list(self))
+
+class StackOrQueue(ABC):
+    "Base class for stack and Queue"
+    def __init__(self):
+        self._list = DoublyLinkedList()
+
+    def push(self,item):
+        "Insert item at beginning"
+        self._list.push(item)
+
+    def __len__(self):
+        return len(self._list)
+
+    def __str__(self):
+        return str(self.peek())
+
+class Stack(StackOrQueue):
+    
+    def peek(self):
+        return self._list.get(0)
+
+    def pop(self):
+        return self._list.pop(0)
+
+    def __repr__(self):
+        return "Stack of length {}".format(len(self))
+
+class Queue(StackOrQueue):
+
+    def peek(self):
+        return self._list.get(-1)
+
+    def pop(self):
+        return self._list.pop(-1)
+
+    def __repr__(self):
+        return "Stack of length {}".format(len(self))

@@ -27,3 +27,23 @@ pytest -v
 - Delete inside list in index time + O(1)
 - Better than dynamic array when list size changes regularly but you don't need to index into or search quickly
 - Essentially a more feature-rich stack/queue
+
+### Stack
+
+- Defined by two operations: `push` and `pop`
+- `push` adds an element to the stack
+- `pop` removes the *most* recently added element from the stack and
+  returns it
+- Last in, first out
+- O(1) time for all (two) limited operations
+- Applicationsinclude memory management, backtrace, syntax parsing, graph searches
+
+### Queue
+
+- Defined by two operations: `push` and `pop`
+- `push` adds an element to t he stack
+- `pop` removes the *least* recently added element from the stack and
+  returns it
+- First in, first  out
+- O(1) time for all (two) limited operations
+- Applications include: dynamic programming, graph searches
