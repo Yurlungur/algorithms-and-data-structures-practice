@@ -1,4 +1,9 @@
 #!/usr/bin/env python
+# Author: Jonah Miller (jonah.maxwell.miller@gmail.com)
+
+# TODO:
+# This implementation would have been easier
+# with sentinel nodes.
 
 from __future__ import print_function,division
 
