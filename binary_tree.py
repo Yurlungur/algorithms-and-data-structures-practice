@@ -40,7 +40,7 @@ class BinaryTreeNode:
     def child(self,direction=None):
         if direction is not  None:
             return self._children[direction]
-        for c in self_children:
+        for c in self._children:
             if c is not None:
                 return c
         return None
