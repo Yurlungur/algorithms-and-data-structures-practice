@@ -19,7 +19,7 @@ class BinaryTreeNode:
         
     def insert(self,data,direction):
         new_node = BinaryTreeNode(data)
-        self._insert_node(node,direction)
+        self._insert_node(new_node,direction)
 
     def delete_child(self,direction):
         child = self._children[direction]
