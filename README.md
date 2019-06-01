@@ -5,7 +5,10 @@ Algorithms and Data Structures Practice
 
 Author: Jonah Miller (jonah.maxwell.miller@gmail.com)
 
-Just a few example algorithms and data structures with tests.
+Just a few example algorithms and data structures with tests. Do not
+use these as a real library. They're not optimized for Python and
+they're terribly slow! Feel free, however, to use them as reference
+implementations for yourself or for educational purposes.
 
 # Install and Run Tests
 
@@ -47,3 +50,12 @@ pytest -v
 - First in, first  out
 - O(1) time for all (two) limited operations
 - Applications include: dynamic programming, graph searches
+
+### AATree
+
+- Implementation of Balanced Binary Search Tree
+- Resources: [wikipedia](https://en.wikipedia.org/wiki/AA_tree) and [original paper](http://user.it.uu.se/~arnea/abs/simp.html)
+- Can be used to implement TreeSort (done) and maintain continually sorted collection
+- Insert, search, and delete in O(log(N))
+- Construction in O(N log(N))
+- Full traversal in O(N)
