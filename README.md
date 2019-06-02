@@ -59,3 +59,16 @@ pytest -v
 - Insert, search, and delete in O(log(N))
 - Construction in O(N log(N))
 - Full traversal in O(N)
+
+### Priority Queue
+
+- Defined by two operations `push` and `pop_max`
+- Can also check if empty
+- Items pushed have a "priority" associated with them. The item with max priority is always popped first.
+- Popped items are gone.
+- Implemented in multiple ways. First implementation uses aforementioned  AATree
+- Very useful in scheduling (for example threads)
+- Can be used for more efficient graph search algorithms such as A*
+- Insertion and deletion in O(log(N))
+- BST version constructed in O(Nlog(N)) time
+- Heap version constructed in O(N) time

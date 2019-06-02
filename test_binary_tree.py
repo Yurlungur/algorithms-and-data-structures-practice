@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from  __future__ import  print_function,division
 import unittest
 from binary_tree import BinaryTreeNode, AATree, Direction
 import math
@@ -73,6 +74,13 @@ class AATreeTest(unittest.TestCase):
         self.assertEqual(T.find_min(),imin)
         self.assertEqual(T.find_max(),imax)
 
+    def test_contains(self):
+        to_insert = [900,1,2,2,4,5,3]
+        T = AATree()
+        for i in to_insert:
+            T.insert(i)
+            self.assertTrue(T.contains(i))
+
     def test_tsort(self):
         T = AATree()
         to_insert = [999,-4.0,-5.0,3,2,5,1e4,0]
@@ -97,3 +105,8 @@ class AATreeTest(unittest.TestCase):
         self.assertEqual(T.find_min(),remaining[0])
         self.assertEqual(T.find_max(),remaining[-1])
         self.assertEqual(T.get_sorted(),remaining)
+        T.delete(T.find_max())
+        self.assertEqual(T.find_max(),remaining[-2])
+
+if __name__ == "__main__":
+    unittest.main()

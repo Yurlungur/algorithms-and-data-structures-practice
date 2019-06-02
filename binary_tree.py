@@ -118,6 +118,15 @@ class AATree:
             return False
         return self._head.contains(key)
 
+    def get(self,key):
+        "Gets the key"
+        if self._head is None:
+            return None
+        node = self._head.get_node(key)
+        if node is None:
+            return node
+        return node.value()
+
     def get_sorted(self):
         "Returns sorted elements of BST"
         out = []
@@ -145,7 +154,7 @@ class AATree:
         if approx:
             return self._head.approx_depth()
         else:
-            return self._head.depth()
+            return self._head.depth()    
 
     def __len__(self):
         return self._size
@@ -296,6 +305,16 @@ class AATreeNode(BinaryTreeNode):
             return self.right().contains(key)
         return False
 
+    def get_node(self,key):
+        "Gets node containing key"
+        if self._data == key:
+            return self
+        if key < self._data and self.left() is not None:
+            return self.left().get_node(key)
+        if key > self._data and self.right() is not None:
+            return self.right().get_node(key)
+        return None
+
     def leftmost(self):
         if self.left() is None:
             return self
@@ -360,5 +379,6 @@ class AATreeNode(BinaryTreeNode):
         new_level = min(left_level,right_level) + 1
         if new_level < self.level():
             self._level = new_level
-            if new_level < self.right().level():
-                self.right()._level = new_level
+            if self.right() is not None:
+                if new_level < self.right().level():
+                    self.right()._level = new_level
