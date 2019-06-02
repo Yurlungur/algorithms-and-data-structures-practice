@@ -60,13 +60,24 @@ pytest -v
 - Construction in O(N log(N))
 - Full traversal in O(N)
 
+### Binary Heap
+
+- Resources: [wikipedia](https://en.wikipedia.org/wiki/Binary_heap) and [paper](https://dl.acm.org/citation.cfm?doid=512274.512284)
+- Binary tree with two properties:
+  - *shape property:* All levels of tree, except deepest one are fully filled. Nodes of last level are filled left to right.
+  - *Heap property:* Key stored in each node is greater than or equal to all its children according to some ordering (less than or equal also possible)
+- I implement a MaxHeap so root node is largest
+- Insertion and deletion are O(log(N))
+- Building heap for first time is O(N) and can be done in-place. Done  by "heapifying" bottom of array up.
+- Applications include priority Queue and efficient heapsort algorithm. Both implemented.
+
 ### Priority Queue
 
 - Defined by two operations `push` and `pop_max`
 - Can also check if empty
 - Items pushed have a "priority" associated with them. The item with max priority is always popped first.
 - Popped items are gone.
-- Implemented in multiple ways. First implementation uses aforementioned  AATree
+- Implemented in multiple ways: AATree and Binary Heap
 - Very useful in scheduling (for example threads)
 - Can be used for more efficient graph search algorithms such as A*
 - Insertion and deletion in O(log(N))
