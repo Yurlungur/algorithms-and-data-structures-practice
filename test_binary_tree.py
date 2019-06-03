@@ -88,6 +88,20 @@ class AATreeTest(unittest.TestCase):
         Tsort = T.get_sorted()
         self.assertEqual(Tsort,sorted(to_insert))
 
+    def test_level_order(self):
+        T = AATree()
+        to_insert = [1,2,3]
+        T.insert_all(to_insert)
+        level_order = T.traverse_level_order()
+        self.assertEqual(level_order,[2,1,3])
+        T = AATree()
+        to_insert = [-3,-2,-1,0,1,2,3]
+        T.insert_all(to_insert)
+        level_order = T.traverse_level_order()
+        Tsort = T.get_sorted()
+        self.assertEqual(Tsort,to_insert)
+        self.assertEqual(level_order,[0,-2,2,-3,-1,1,3])
+
     def test_delete(self):
         T = AATree()
         to_insert = list(range(64))

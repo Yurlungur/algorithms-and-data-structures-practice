@@ -2,6 +2,7 @@
 
 from __future__ import print_function,division
 from enum import IntEnum
+from linked_list import Queue
 
 class Direction(IntEnum):
     LEFT = 0
@@ -154,7 +155,19 @@ class AATree:
         if approx:
             return self._head.approx_depth()
         else:
-            return self._head.depth()    
+            return self._head.depth()
+
+    def traverse_level_order(self):
+        "Traverse tree in level order. Return contents in list"
+        out = []
+        q = Queue()
+        node = self._head
+        while node is not None:
+            out.append(node._data)
+            for c in node._children:
+                q.push(c)
+            node = q.pop()
+        return out
 
     def __len__(self):
         return self._size
@@ -348,6 +361,7 @@ class AATreeNode(BinaryTreeNode):
         return max(left_depth,right_depth)
 
     def get_sorted(self,collection):
+        # equivalent to traverse  inorder
         if self.left() is not None:
             self.left().get_sorted(collection)
         collection.append(self._data)
