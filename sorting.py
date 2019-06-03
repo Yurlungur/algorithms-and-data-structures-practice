@@ -6,6 +6,8 @@
 from __future__ import print_function,division
 import math
 from copy import copy
+from binary_tree import AATree
+from binary_heap import MaxHeap
 
 def bubble_sort(A):
     "Bubble sorts array A O(N^2)"
@@ -49,6 +51,16 @@ def merge_sort(A):
         else:
             raise ValueError("i and j both out of bounds")
     return B
+
+def tree_sort(A):
+    "Sorts with TreeSort"
+    T = AATree()
+    T.insert_all(A)
+    return T.get_sorted()
+
+def heapsort(A):
+    "Sorts with heapsort"
+    return MaxHeap.heapsort(A)
 
 def quicksort(A,lo = None, hi = None):
     "Sorts A with quicksort"

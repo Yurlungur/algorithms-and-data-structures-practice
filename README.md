@@ -116,3 +116,16 @@ pytest -v
 - Worst case: O(N^2) if one partition of array is empty
 - Best and average cases: O(N log(N))
 - By far fastest sort on average (if there are few repeated elements)
+
+### Heapsort
+
+- Implemented with binary heap
+- Essentially selection sort with greatest/least element selected from heap
+- O(N log(N)) time. Linear to construct heap. log(N) to acces next
+  element from heap. N swaps.
+
+### Treesort
+- Implemented by simply inserting elements into self-balancing binary
+  search tree then removing them.
+- log(N) for each inseart or deletion. N inserts and N deletions. So O(N  log(N)) time.
+

@@ -7,6 +7,8 @@ from sorting import bubble_sort
 from sorting import selection_sort
 from sorting import merge_sort
 from sorting import quicksort
+from sorting import tree_sort
+from sorting import heapsort
 
 # from random import shuffle
 # A1 = range(10)
@@ -56,6 +58,22 @@ class SortTest(unittest.TestCase):
         S1 = quicksort(copy(A1))
         self.assertEqual(S1,sorted(A1))
         S2 = quicksort(copy(A2))
+        self.assertEqual(S2,sorted(A2))
+
+    def test_tree(self):
+        S0 = tree_sort(copy(A0))
+        self.assertEqual(S0,sorted(A0))
+        S1 = tree_sort(copy(A1))
+        self.assertEqual(S1,sorted(A1))
+        S2 = tree_sort(copy(A2))
+        self.assertEqual(S2,sorted(A2))
+
+    def test_heap(self):
+        S0 = heapsort(copy(A0))
+        self.assertEqual(S0,sorted(A0))
+        S1 = heapsort(copy(A1))
+        self.assertEqual(S1,sorted(A1))
+        S2 = heapsort(copy(A2))
         self.assertEqual(S2,sorted(A2))
 
 if __name__ == "__main__":
