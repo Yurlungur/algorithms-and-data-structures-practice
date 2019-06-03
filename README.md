@@ -83,3 +83,36 @@ pytest -v
 - Insertion and deletion in O(log(N))
 - BST version constructed in O(Nlog(N)) time
 - Heap version constructed in O(N) time
+
+# Algorithms
+
+## Sorting Algorithms
+
+### Bubble sort
+
+- The simplest sort O(N^2) time
+- Iterates through the array, pairwise exchanging elements
+- Largest element will "bubble up" to right of array
+- Repeat on subarray not containing largest elements
+
+### Selection Sort
+
+- Walks through array and swaps smallest element to lowest index
+- Repeats on subarray
+- O(N^2) time
+- Easy to perform in-place
+
+### Merge Sort
+
+- If two subarrays are sorted, one can merge them to make the new array sorted
+- Merge sort recursively does this on left- and right-halves of array
+- O(N log(N)) time. Merge has linear cost. Must be performed log(N) times.
+
+### Quicksort
+
+- Finds "pivot" and ensures  elements smaller than it are to its left
+- Recursively performs this on subarrays to left and right of pivot
+- Efficient in place
+- Worst case: O(N^2) if one partition of array is empty
+- Best and average cases: O(N log(N))
+- By far fastest sort on average (if there are few repeated elements)
