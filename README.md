@@ -86,12 +86,14 @@ pytest -v
 
 ### Disjoint Set
 
+- [Wikipedia entry](https://en.wikipedia.org/wiki/Disjoint-set_data_structure)
 - Defined by three operations `add`, `find`, and `union`
     - `add` adds a new set
     - `find` returns representative element of a set
     - `union` merges two sets.
 - All operations to disjoint set are, on average, constant time
 - Sets are represented as a forest, which I internally compactly implement as a hash table. A more standard implementation would be an array.
+- I implement with path compression and union by rank.    
 
 # Algorithms
 
