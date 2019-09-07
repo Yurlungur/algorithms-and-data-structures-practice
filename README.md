@@ -84,6 +84,15 @@ pytest -v
 - BST version constructed in O(Nlog(N)) time
 - Heap version constructed in O(N) time
 
+### Disjoint Set
+
+- Defined by three operations `add`, `find`, and `union`
+    - `add` adds a new set
+    - `find` returns representative element of a set
+    - `union` merges two sets.
+- All operations to disjoint set are, on average, constant time
+- Sets are represented as a forest, which I internally compactly implement as a hash table. A more standard implementation would be an array.
+
 # Algorithms
 
 ## Sorting Algorithms
